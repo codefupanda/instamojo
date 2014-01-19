@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Instamojo</string>
+    <string name="action_settings">Settings</string>
+    <string name="sign_in">Sign In</string>
+    <string name="password">Password</string>
+    <string name="username_email_id">Username/Email ID</string>
+    <string name="instamojo">Instamojo</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_offer_detail">OfferDetail</string>
+
+</resources>
