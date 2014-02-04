@@ -16,13 +16,16 @@
  */
 package com.codefupanda.instamojo.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Offers pojo. Used for REST call
  * @author shashank
  */
-public class Offers {
+public class Offers implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
 	private Boolean success;
 	private List<Offer> offers;
 	private String message;

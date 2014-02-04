@@ -29,7 +29,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.codefupanda.instamojo.activity.OfferDetail"
+            android:name="com.codefupanda.instamojo.activity.OfferDetailActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>

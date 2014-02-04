@@ -25,12 +25,14 @@ public class Constants {
 	public static final int WELCOME_SCREEN_LENGTH = 4000;
 	public static final String LOGIN_REST_URL = "https://www.instamojo.com/api/1/auth/";
 	public static final String GET_USER_OFFERS_REST_URL = "https://www.instamojo.com/api/1/offer/";
+	public static final String GET_OFFER_DETAILS_REST_URL = "https://www.instamojo.com/api/1/offer/%s/";
 	public final static String X_APP_ID = "X-App-Id";
-	public final static String X_APP_ID_VALUE = "THE_APP_ID";
+	public final static String X_APP_ID_VALUE = "";
 	public final static String X_AUTH_TOKEN = "X-Auth-Token";
 	public final static String USERNAME = "username";
 	public final static String PASSWORD = "password";
 	public final static String SIGN_IN_FAIL = "Sign In Failed";
 	public final static String NO_INTERNET = "Could not connect to Houston! No Internet";
 	public final static String OK = "OK";
+	public final static String FAILED = "Failed!";
 }

@@ -26,8 +26,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 
-import com.codefupanda.instamojo.R;
-
 /**
  * Layout for Slid menu!
  * by Julian Chu <walkingice AT 0xlab.org>
@@ -61,8 +59,8 @@ public class AnimationLayout extends ViewGroup {
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        mSidebar = findViewById(R.id.animation_layout_sidebar);
-        mContent = findViewById(R.id.animation_layout_content);
+        //mSidebar = findViewById(R.id.animation_layout_sidebar);
+        //mContent = findViewById(R.id.animation_layout_content);
 
         if (mSidebar == null) {
             throw new NullPointerException("no view id = animation_sidebar");

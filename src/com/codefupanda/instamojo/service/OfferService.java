@@ -16,11 +16,9 @@
  */
 package com.codefupanda.instamojo.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.codefupanda.instamojo.exception.InstamojoException;
-import com.codefupanda.instamojo.model.Offer;
+import com.codefupanda.instamojo.model.OfferDetail;
+import com.codefupanda.instamojo.model.Offers;
 import com.codefupanda.instamojo.model.User;
 
 /**
@@ -28,34 +26,25 @@ import com.codefupanda.instamojo.model.User;
  * 
  * @author shashank
  */
-public class OfferService {
+public interface OfferService {
 	
 	/**
+	 * Get all offers of the logged in user
 	 * 
 	 * @param user user object containing auth token
-	 * @return all the offers of the user. <code>null</code> if results could not be retrieved
-	 * @throws InstamojoException
+	 * @return all the offers of the user.
+	 * @throws InstamojoException if not connected to Internet or some other network issues 
 	 */
-	public List<Offer> getAllOffers(User user) throws InstamojoException {
-//		RestCallBuilder builder = new RestCallBuilder(GET_USER_OFFERS_REST_URL);
-//		builder.addHeader(X_APP_ID, X_APP_ID_VALUE);
-//		builder.addHeader(X_AUTH_TOKEN, user.getToken());
-//		
-//		try {
-//			builder.doGet();
-//			Offers offers = JsonUtil.toObject(builder.getResponse(), Offers.class);
-//			if(offers.getSuccess()) {
-//				return offers.getOffers();
-//			}
-//		} catch (IOException e) {
-//			// log error!
-//			throw new InstamojoException();
-//		}
-//		return null;
-		List<Offer> offers = new ArrayList<Offer>();
-		offers.add(new Offer("test1"));
-		offers.add(new Offer("test2"));
-		offers.add(new Offer("test3"));
-		return offers;
-	}
+	public Offers getAllOffers(User user) throws InstamojoException;
+
+	/**
+	 * Get details of the offer
+	 * 
+	 * @param slug the slug of the offer whose details are required 
+	 * @param user the logged in user
+	 * @return details of the offer
+	 * @throws InstamojoException if not connected to Internet or some other network issues 
+	 */
+	public OfferDetail getOfferDetail(User user, String slug) throws InstamojoException;
+
 }

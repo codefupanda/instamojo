@@ -16,18 +16,9 @@
  */
 package com.codefupanda.instamojo.service;
 
-import static com.codefupanda.instamojo.constant.Constants.LOGIN_REST_URL;
-import static com.codefupanda.instamojo.constant.Constants.PASSWORD;
-import static com.codefupanda.instamojo.constant.Constants.USERNAME;
-import static com.codefupanda.instamojo.constant.Constants.X_APP_ID;
-import static com.codefupanda.instamojo.constant.Constants.X_APP_ID_VALUE;
-
-import java.io.IOException;
-
+import com.codefupanda.instamojo.exception.InstamojoException;
 import com.codefupanda.instamojo.exception.InstamojoRestException;
 import com.codefupanda.instamojo.model.User;
-import com.codefupanda.instamojo.service.rest.RestCallBuilder;
-import com.codefupanda.instamojo.service.util.JsonUtil;
 
 /**
  * Provides functions for logging in and 
@@ -35,15 +26,13 @@ import com.codefupanda.instamojo.service.util.JsonUtil;
  * 
  * @author shashank
  */
-public class LoginService {
+public interface LoginService {
 	
 	/**
 	 * Check is user is logged in.
 	 * We will check if we have a auth token with us.
 	 */
-	public boolean isLoggedIn(User user) {
-		return false;
-	}
+	public boolean isLoggedIn(User user);
 	
 	/**
 	 * log in with username/emailId and password
@@ -52,20 +41,6 @@ public class LoginService {
 	 * @param password
 	 * @throws InstamojoRestException 
 	 */
-	public void login(User user, String password) throws InstamojoRestException {
-		RestCallBuilder builder = new RestCallBuilder(LOGIN_REST_URL);
-		builder.addHeader(X_APP_ID, X_APP_ID_VALUE);
-		builder.addParams(USERNAME, user.getEmailId());
-		builder.addParams(PASSWORD, password);
-		
-		try {
-			builder.doPost();
-			User tempUser = JsonUtil.toObject(builder.getResponse(), User.class);
-			user.setToken(tempUser.getToken());
-			user.setSuccess(tempUser.getSuccess());
-			user.setMessage(tempUser.getMessage());
-		} catch (IOException e) {
-			throw new InstamojoRestException();
-		}
-	}
+	public void login(User user, String password) throws InstamojoException;
+
 }
